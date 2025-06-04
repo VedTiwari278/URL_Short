@@ -1,6 +1,13 @@
 const URL = require("../model/UserData");
 const shortid = require("shortid");
 
+exports.Home = (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false,
+  });
+};
+
 exports.getData = async (req, res) => {
   const { shortCode } = req.params;
   try {
