@@ -14,9 +14,12 @@ const URLdata = () => {
 
     const sendData = async () => {
       try {
-        const response = await axios.post("https://url-short-liart.vercel.app/url-shortn", {
-          original_url: originalUrl,
-        });
+        const response = await axios.post(
+          "https://url-short-liart.vercel.app/url-shortn",
+          {
+            original_url: originalUrl,
+          }
+        );
 
         if (response.data && response.data.shortUrl) {
           toast.success("URL shortened successfully!");
@@ -33,7 +36,9 @@ const URLdata = () => {
     sendData();
   };
 
-  const fullShortUrl = shortCode ? `http://localhost:8000${shortCode}` : "";
+  const fullShortUrl = shortCode
+    ? `https://url-short-liart.vercel.app${shortCode}`
+    : "";
 
   return (
     <div className="container mt-5">
