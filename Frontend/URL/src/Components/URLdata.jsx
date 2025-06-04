@@ -14,7 +14,7 @@ const URLdata = () => {
 
     const sendData = async () => {
       try {
-        const response = await axios.post("http://localhost:8000/url-shortn", {
+        const response = await axios.post("https://url-short-liart.vercel.app/url-shortn", {
           original_url: originalUrl,
         });
 
