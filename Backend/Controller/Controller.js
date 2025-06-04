@@ -1,8 +1,8 @@
 const URL = require("../model/UserData");
 const shortid = require("shortid");
+
 exports.getData = async (req, res) => {
   const { shortCode } = req.params;
-
   try {
     const urlDoc = await URL.findOne({ ShortCode: shortCode });
     if (urlDoc) {

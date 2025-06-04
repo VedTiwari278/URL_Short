@@ -8,7 +8,14 @@ const Router = require("./Router/Routes"); // ← renamed the import to “Route
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONs"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 
@@ -18,7 +25,7 @@ mongoose
   .connect(process.env.DB_PATH)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(8000, () => {
+    app.listen(process.env.PORT, () => {
       console.log("Server running at http://localhost:8000");
     });
   })
